@@ -14,6 +14,10 @@ for(const [topic,choice,correct] of [
  ['evidence','benefits',true],['evidence','errors',false]
 ]) assert.equal(coach.checkAnswer(topic,choice,settings).correct,correct,topic+' '+choice);
 assert.equal(coach.exercise('prevalence',settings).correctChoice,'higher');
+assert.match(coach.exercise('detection',{prevalence:0,sensitivity:90,specificity:95}).body,/empty.*undefined/);
+assert.match(coach.exercise('positives',{prevalence:0,sensitivity:0,specificity:100}).body,/empty.*undefined/);
+assert.equal(coach.exercise('prevalence',{prevalence:1,sensitivity:0,specificity:100}).correctChoice,'undefined');
+assert.equal(coach.exercise('prevalence',{prevalence:1,sensitivity:0,specificity:95}).correctChoice,'same');
 assert.equal(coach.exercise('prevalence',{prevalence:1,sensitivity:90,specificity:100}).correctChoice,'same','Perfect clearance keeps PPV100% at both positive prevalences');
 assert.match(coach.checkAnswer('positives','cases',settings).body,/58\.5/);
 assert.match(coach.checkAnswer('detection','positives',settings).body,/10/);
