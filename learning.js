@@ -15,11 +15,19 @@
     return {actual:counts.ppv,error,close:error<=2,counts};
   }
   function notebook(answers){
-    return {version:1,purpose:'Fictional screening practice; not a validated learning assessment',storage:'This export was created on request. The app stores no learner data.',attempts:answers.map(answer=>{
+    return {version:2,purpose:'Fictional screening practice; not a validated learning assessment',storage:'This export was created on request. The app stores no learner data.',attempts:answers.map(answer=>{
       const item=cases.find(c=>c.id===answer.caseId),result=gradePrediction(answer.caseId,answer.prediction);
-      return {caseId:item.id,settings:{...item.settings},prediction:answer.prediction,actual:result.actual,absoluteErrorPercentagePoints:result.error,denominator:['positives','cases','population'].includes(answer.denominator)?answer.denominator:null};
+      const valid=value=>['positives','cases','population'].includes(value),denominator=valid(answer.denominator)?answer.denominator:null;
+      return {caseId:item.id,settings:{...item.settings},prediction:answer.prediction,actual:result.actual,absoluteErrorPercentagePoints:result.error,denominator,firstDenominator:valid(answer.firstDenominator)?answer.firstDenominator:denominator,denominatorAttempts:Number.isSafeInteger(answer.denominatorAttempts)&&answer.denominatorAttempts>=0?answer.denominatorAttempts:denominator?1:0};
     })};
   }
-  root.BaseRateLearning={cases,gradePrediction,notebook};
+  function checkDenominator(caseId,choice){
+    if(!['positives','cases','population'].includes(choice))throw new RangeError('Choose a displayed denominator.');
+    const r=gradePrediction(caseId,0).counts,fmt=science.formatNumber,cases=r.tp+r.fn;
+    if(choice==='positives')return {correct:true,body:`Yes. Start with ${fmt(r.positive)} positive results: ${fmt(r.tp)} true + ${fmt(r.fp)} false. ${fmt(r.tp)} ÷ ${fmt(r.positive)} × 100 = ${fmt(r.ppv)}%.`};
+    if(choice==='cases')return {correct:false,body:`That group contains ${fmt(cases)} people with the condition. ${fmt(r.tp)} ÷ ${fmt(cases)} × 100 = ${fmt(r.tp/cases*100)}% is sensitivity. This question starts with everyone who tested positive. Try that group before continuing.`};
+    return {correct:false,body:`${fmt(r.tp)} ÷ 1,000 × 100 = ${fmt(r.tp/10)}% counts true positives in the whole population. This question asks about the smaller positive group. Try that group before continuing.`};
+  }
+  root.BaseRateLearning={cases,gradePrediction,notebook,checkDenominator};
   if(typeof module!=='undefined')module.exports=root.BaseRateLearning;
 })(typeof window!=='undefined'?window:globalThis);
