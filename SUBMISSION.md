@@ -12,9 +12,9 @@ Pin experiment A and vary B to compare the positive groups. A prevalence curve, 
 
 The second-test explorer applies explicit conditional rates only to first-positive people. Independent identical tests yield 76.6% in the default fictional example. A perfectly repeated result leaves PPV unchanged. The assumptions are visible so the tool does not imply that two positives automatically provide independent evidence.
 
-A three-case lesson asks for an estimate before revealing counts, then asks which group belongs in the denominator. First guesses stay in tab memory; learners can export a numeric notebook. A demonstration estimate is explicitly labelled as an example, not learner-study data.
+A three-case lesson asks for an estimate before revealing counts, then asks which group belongs in the denominator. Wrong choices receive the actual ratio for their chosen reference group and require correction before progression. First numeric guesses and first/final denominator choices stay in tab memory; learners can export a numeric notebook. A demonstration estimate is explicitly labelled as an example, not learner-study data.
 
-The teach-back AI coach reads an explanation locally, identifies a likely reasoning pattern and selects fixed educational feedback, current experiment counts, a follow-up question and evidence links. Learners can inspect influential words, feature coverage, label alternatives and uncalibrated model votes, then follow a relevant practice link. The coach suggests an interpretation rather than grading competence.
+The AI coach reads an explanation locally and proposes a provisional review topic. Learners can override it, answer one of five factual checks using current counts or an evidence distinction, and revise their explanation. Feedback checks only the selected answer; it does not declare an inferred misconception or endorse the explanation. Learners can inspect influential words, feature coverage, label alternatives and uncalibrated model votes, then follow a relevant practice link. The coach suggests an interpretation rather than grading competence.
 
 ## How it was built
 
@@ -22,7 +22,7 @@ A static HTML/CSS/JavaScript app runs without dependencies, accounts or API keys
 
 Inference stays in the browser. Coverage and vote separation can trigger uncertainty; personal-health queries are redirected away from the fictional experiment. No analytics, remote inference or stored explanations are included. Hosting providers may retain ordinary request logs.
 
-The interface uses a restrained field-notebook style, clear hierarchy, readable labels, patterned outcomes and keyboard controls. Essential explanations stay visible; advanced assumptions and model details use progressive disclosure. The demo uses the entrant's own supplied recording and actual captured application states.
+The interface uses a restrained field-notebook style, clear hierarchy, readable labels, patterned outcomes and keyboard controls. Essential explanations stay visible; advanced assumptions and model details use progressive disclosure. The demo uses the entrant's own supplied recording and actual captured application states. It was recorded before the latest coaching and denominator-feedback refinements; the live prototype and written materials show the current version.
 
 ## Challenges and what was learned
 
@@ -30,15 +30,15 @@ Exact expectations can be fractional while the grid must contain exactly 1,000 s
 
 Repeated testing exposed a second conceptual trap: multiplying test rates without explaining dependence. The conditional explorer makes the selected population and assumption explicit, including a repeat that adds no information.
 
-A small text model can sound overly certain or misread a correct explanation. The app exposes uncertainty and failure modes. One holdout sentence correctly distinguishing sensitivity from predictive value was misread as confusion. The project retains the known error and complete evaluation instead of moving the sentence into training.
+A small text model can sound overly certain or misread a correct explanation. The app exposes uncertainty and failure modes. One holdout sentence correctly distinguishing sensitivity from predictive value was misread as confusion. The project retains the known error and complete evaluation instead of moving the sentence into training. A 24-case development stress audit also exposed correct, ambiguous and mixed explanations with high but incorrect votes. Among ten flawed/mixed probes, the previous wording praised two; provisional feedback now praises zero. All classifications remain unchanged, so this is a measured feedback-policy correction, not improved classifier accuracy.
 
 ## Validation
 
-Four reproducible test suites pass. They cover 336 base arithmetic/rounding combinations, 2,525 prevalence-curve points, 405 conditional repeat-test combinations, all lesson equations, immutable snapshots, invalid inputs, zero denominators, tiny-count display, exports excluding learner text and missing-model feedback. All 30 holdout examples match between Python and browser inference.
+Five reproducible test suites and a deterministic model audit pass. They cover 336 base arithmetic/rounding combinations, 2,525 prevalence-curve points, 405 conditional repeat-test combinations, all lesson equations, immutable snapshots, invalid inputs, zero denominators, tiny-count display, exports excluding learner text and missing-model feedback. All 30 holdout examples match between Python and browser inference.
 
 Browser checks verified comparison pinning, independent/repeated presets, three-case progression and restart, numeric-input errors and recovery, validated settings links, local model diagnostics and the actual app at 390 pixels without horizontal overflow. A separate code review was completed and its display/recovery findings corrected.
 
-The separately authored synthetic holdout produced 29/30 correct raw classifications. Uncertainty checks accepted 28 labels, 27 correct. These are development checks, not a benchmark, clinical accuracy claim, evidence of learning gain or health outcome. No independent learner study or clinical validation has been completed.
+The synthetic holdout from the same project produced 29/30 correct raw classifications. Uncertainty checks accepted 28 labels, 27 correct. These are development checks, not a benchmark, clinical accuracy claim, evidence of learning gain or health outcome. No independent learner study or clinical validation has been completed. No exact split duplicates were found; shared authorship and claim types limit semantic independence. The reproducible audit, full model card and entrant code walkthrough are in the repository.
 
 ## AI assistance and honest limits
 

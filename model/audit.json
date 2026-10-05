@@ -1,0 +1,685 @@
+{
+  "purpose": "Reproducible internal audit. Same-author synthetic splits and development probes; no independent learner, clinical or learning-outcome evidence.",
+  "modelReproduction": {
+    "dist/model.js": true,
+    "model/evaluation.json": true
+  },
+  "sha256": {
+    "model/train.py": "8e9e3f7435066abde2120fae6f179aceaf38f592baea9742a1b816205b44f3f7",
+    "model/dataset.json": "daa9465efc6e649ff68519e20d4a8ded91d1b4b23e36b017c3586d1cf74086e0",
+    "dist/model.js": "d1d2cd1f4568f8664d0cc2e64bd4132bc358baca6be5b62c88d370bb8eecb69e",
+    "model/evaluation.json": "84e17dcb3f572579e6d3aa499d4437a13044382066c959b04454e1c4f359842b",
+    "model/probes.json": "22f9b6e69ae95ec2bf8033e014c32b2c0dcd66a0f4e49fbf082dbfd96a3572fd"
+  },
+  "reportedMetricsReproduced": {
+    "evaluatedCount": 30,
+    "correctCount": 29,
+    "rawAccuracy": 0.9666666666666667,
+    "acceptedCount": 28,
+    "acceptedCorrect": 27,
+    "coverage": 0.9333333333333333,
+    "confusionMatrix": {
+      "balanced": {
+        "balanced": 5,
+        "certainty": 0,
+        "sensitivity": 1,
+        "base_rate": 0,
+        "dismissal": 0
+      },
+      "certainty": {
+        "balanced": 0,
+        "certainty": 6,
+        "sensitivity": 0,
+        "base_rate": 0,
+        "dismissal": 0
+      },
+      "sensitivity": {
+        "balanced": 0,
+        "certainty": 0,
+        "sensitivity": 6,
+        "base_rate": 0,
+        "dismissal": 0
+      },
+      "base_rate": {
+        "balanced": 0,
+        "certainty": 0,
+        "sensitivity": 0,
+        "base_rate": 6,
+        "dismissal": 0
+      },
+      "dismissal": {
+        "balanced": 0,
+        "certainty": 0,
+        "sensitivity": 0,
+        "base_rate": 0,
+        "dismissal": 6
+      }
+    },
+    "limits": "Small, author-created English holdout. Training and holdout share a fictional task; no external, multilingual, clinical, or educational-outcome validation."
+  },
+  "split": {
+    "trainingCount": 100,
+    "holdoutCount": 30,
+    "exactSentenceOverlap": 0,
+    "meanNearestTokenJaccard": 0.332533,
+    "nearestTokenJaccardAtLeastHalf": 0,
+    "sameLabelNearest": 23,
+    "limitations": "Token/sequence similarity cannot establish semantic independence. Both splits reuse familiar claim types and authoring style.",
+    "nearestNeighbors": [
+      {
+        "holdout": "Positive results can include people without the condition, so I compare true positives with all positives.",
+        "label": "balanced",
+        "nearestTrain": "The proportion with the condition among positives is true positives divided by all positives.",
+        "nearestLabel": "balanced",
+        "tokenJaccard": 0.3,
+        "sequenceRatio": 0.613
+      },
+      {
+        "holdout": "If a condition is rare, the large healthy group can create lots of false positives.",
+        "label": "balanced",
+        "nearestTrain": "If most positives are false all screening is a waste of time.",
+        "nearestLabel": "dismissal",
+        "tokenJaccard": 0.286,
+        "sequenceRatio": 0.222
+      },
+      {
+        "holdout": "A positive screening result is not a diagnosis because the test sometimes flags non cases.",
+        "label": "balanced",
+        "nearestTrain": "A positive result does not prove the condition because false positives happen.",
+        "nearestLabel": "balanced",
+        "tokenJaccard": 0.3,
+        "sequenceRatio": 0.571
+      },
+      {
+        "holdout": "A negative result is not certain because false negatives can occur.",
+        "label": "balanced",
+        "nearestTrain": "A negative result does not completely rule out the condition because cases can be missed.",
+        "nearestLabel": "balanced",
+        "tokenJaccard": 0.3,
+        "sequenceRatio": 0.628
+      },
+      {
+        "holdout": "How common the condition is affects the proportion of real cases among positive results.",
+        "label": "balanced",
+        "nearestTrain": "Changing how common the condition is changes the meaning of a positive result.",
+        "nearestLabel": "balanced",
+        "tokenJaccard": 0.389,
+        "sequenceRatio": 0.723
+      },
+      {
+        "holdout": "Sensitivity measures detected cases rather than the probability of disease among positives.",
+        "label": "balanced",
+        "nearestTrain": "I use the sensitivity as the probability of disease in the positive group.",
+        "nearestLabel": "sensitivity",
+        "tokenJaccard": 0.278,
+        "sequenceRatio": 0.642
+      },
+      {
+        "holdout": "If someone screens positive they must have the condition for sure.",
+        "label": "certainty",
+        "nearestTrain": "You always have the condition if the screening says positive.",
+        "nearestLabel": "certainty",
+        "tokenJaccard": 0.333,
+        "sequenceRatio": 0.441
+      },
+      {
+        "holdout": "A negative result is an absolute guarantee of no disease.",
+        "label": "certainty",
+        "nearestTrain": "A negative test can miss cases, so it is not an absolute guarantee.",
+        "nearestLabel": "balanced",
+        "tokenJaccard": 0.353,
+        "sequenceRatio": 0.645
+      },
+      {
+        "holdout": "The screen confirms the disease with complete certainty.",
+        "label": "certainty",
+        "nearestTrain": "Everyone with a positive test definitely has the disease.",
+        "nearestLabel": "certainty",
+        "tokenJaccard": 0.231,
+        "sequenceRatio": 0.389
+      },
+      {
+        "holdout": "Positive means definitely ill and negative means definitely well.",
+        "label": "certainty",
+        "nearestTrain": "Sensitivity and the proportion ill among positive tests are identical.",
+        "nearestLabel": "sensitivity",
+        "tokenJaccard": 0.214,
+        "sequenceRatio": 0.296
+      },
+      {
+        "holdout": "Every positive result is conclusive proof of disease.",
+        "label": "certainty",
+        "nearestTrain": "A positive result is certain proof of the condition.",
+        "nearestLabel": "certainty",
+        "tokenJaccard": 0.417,
+        "sequenceRatio": 0.667
+      },
+      {
+        "holdout": "It is impossible for somebody with a negative screen to be ill.",
+        "label": "certainty",
+        "nearestTrain": "If the result is negative it is impossible to have the disease.",
+        "nearestLabel": "certainty",
+        "tokenJaccard": 0.294,
+        "sequenceRatio": 0.46
+      },
+      {
+        "holdout": "The test detects ninety percent of cases, therefore ninety percent of positive people are sick.",
+        "label": "sensitivity",
+        "nearestTrain": "A test that detects ninety percent of cases means only ten percent of positives are false.",
+        "nearestLabel": "sensitivity",
+        "tokenJaccard": 0.368,
+        "sequenceRatio": 0.735
+      },
+      {
+        "holdout": "I think sensitivity is the chance a positive test is a real case.",
+        "label": "sensitivity",
+        "nearestTrain": "Sensitivity is not the same as the chance of the condition after a positive test.",
+        "nearestLabel": "balanced",
+        "tokenJaccard": 0.412,
+        "sequenceRatio": 0.575
+      },
+      {
+        "holdout": "The ninety percent sensitivity is also the positive predictive value.",
+        "label": "sensitivity",
+        "nearestTrain": "Positive predictive value and sensitivity are the same number.",
+        "nearestLabel": "sensitivity",
+        "tokenJaccard": 0.385,
+        "sequenceRatio": 0.397
+      },
+      {
+        "holdout": "Specificity is how likely somebody is to have the condition given a positive.",
+        "label": "sensitivity",
+        "nearestTrain": "The chance after a positive result depends on how common the condition is.",
+        "nearestLabel": "balanced",
+        "tokenJaccard": 0.333,
+        "sequenceRatio": 0.397
+      },
+      {
+        "holdout": "Sensitivity means the proportion with disease in the positive group.",
+        "label": "sensitivity",
+        "nearestTrain": "I use the sensitivity as the probability of disease in the positive group.",
+        "nearestLabel": "sensitivity",
+        "tokenJaccard": 0.429,
+        "sequenceRatio": 0.789
+      },
+      {
+        "holdout": "Ninety percent case detection tells us nine out of ten positives have disease.",
+        "label": "sensitivity",
+        "nearestTrain": "Ninety five percent specificity means ninety five percent of positives have the disease.",
+        "nearestLabel": "sensitivity",
+        "tokenJaccard": 0.353,
+        "sequenceRatio": 0.663
+      },
+      {
+        "holdout": "The disease frequency is irrelevant to interpreting a positive test.",
+        "label": "base_rate",
+        "nearestTrain": "The group size without disease is irrelevant to the positive results.",
+        "nearestLabel": "base_rate",
+        "tokenJaccard": 0.429,
+        "sequenceRatio": 0.657
+      },
+      {
+        "holdout": "I can leave prevalence out because sensitivity and specificity are enough.",
+        "label": "base_rate",
+        "nearestTrain": "We only need sensitivity and specificity, not prevalence.",
+        "nearestLabel": "base_rate",
+        "tokenJaccard": 0.267,
+        "sequenceRatio": 0.611
+      },
+      {
+        "holdout": "It makes no difference if the disease is uncommon or widespread.",
+        "label": "base_rate",
+        "nearestTrain": "If the result is negative it is impossible to have the disease.",
+        "nearestLabel": "certainty",
+        "tokenJaccard": 0.312,
+        "sequenceRatio": 0.331
+      },
+      {
+        "holdout": "The same test means the same probability in any group.",
+        "label": "base_rate",
+        "nearestTrain": "A positive result means the same thing in every population.",
+        "nearestLabel": "base_rate",
+        "tokenJaccard": 0.286,
+        "sequenceRatio": 0.566
+      },
+      {
+        "holdout": "The base rate does not affect the fraction of true positives.",
+        "label": "base_rate",
+        "nearestTrain": "Testing a different group will not change the proportion of true positives.",
+        "nearestLabel": "base_rate",
+        "tokenJaccard": 0.294,
+        "sequenceRatio": 0.603
+      },
+      {
+        "holdout": "There is no reason to consider how common the condition is.",
+        "label": "base_rate",
+        "nearestTrain": "How common the condition is does not matter to the result.",
+        "nearestLabel": "base_rate",
+        "tokenJaccard": 0.429,
+        "sequenceRatio": 0.479
+      },
+      {
+        "holdout": "Because false positives occur, screening should never be used at all.",
+        "label": "dismissal",
+        "nearestTrain": "If there are false positives we should never use screening.",
+        "nearestLabel": "dismissal",
+        "tokenJaccard": 0.312,
+        "sequenceRatio": 0.625
+      },
+      {
+        "holdout": "A screening test that misses a case is entirely worthless.",
+        "label": "dismissal",
+        "nearestTrain": "A test that misses even one case should never be used.",
+        "nearestLabel": "dismissal",
+        "tokenJaccard": 0.333,
+        "sequenceRatio": 0.589
+      },
+      {
+        "holdout": "False alarms mean the test has zero value.",
+        "label": "dismissal",
+        "nearestTrain": "Any false negative means the test has no value at all.",
+        "nearestLabel": "dismissal",
+        "tokenJaccard": 0.357,
+        "sequenceRatio": 0.708
+      },
+      {
+        "holdout": "An imperfect test is always a waste of effort.",
+        "label": "dismissal",
+        "nearestTrain": "An imperfect screen is a waste and has zero benefit.",
+        "nearestLabel": "dismissal",
+        "tokenJaccard": 0.357,
+        "sequenceRatio": 0.653
+      },
+      {
+        "holdout": "Any false result proves screening is pointless.",
+        "label": "dismissal",
+        "nearestTrain": "Screening is pointless because it cannot be perfect.",
+        "nearestLabel": "dismissal",
+        "tokenJaccard": 0.25,
+        "sequenceRatio": 0.465
+      },
+      {
+        "holdout": "If tests are not perfect there cannot be any screening benefit.",
+        "label": "dismissal",
+        "nearestTrain": "There is no benefit to screening if any cases are missed.",
+        "nearestLabel": "dismissal",
+        "tokenJaccard": 0.375,
+        "sequenceRatio": 0.45
+      }
+    ]
+  },
+  "developmentProbes": {
+    "count": 24,
+    "classificationUnchanged": true,
+    "flawedOrMixedCount": 10,
+    "originalPraisedFlawedOrMixed": 2,
+    "currentPraisedFlawedOrMixed": 0,
+    "correctProbesAcceptedAsMisconceptionPattern": 5,
+    "correctProbeCount": 8,
+    "allCurrentResponsesProvisional": true,
+    "limitations": "These author-labeled probes informed this feedback revision. Fewer praising titles measures response wording, not classification accuracy, misconception detection or learning gain.",
+    "rows": [
+      {
+        "group": "correct",
+        "text": "Sensitivity measures detected cases rather than the probability of disease among positives.",
+        "rawLabel": "sensitivity",
+        "label": "sensitivity",
+        "vote": 0.9808012911978988,
+        "coverage": 0.7142857142857143,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Check which group you are counting.",
+        "currentTitle": "Review the two starting groups.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "correct",
+        "text": "Sensitivity starts with people who have the condition, whereas predictive value starts with positive results.",
+        "rawLabel": "sensitivity",
+        "label": "uncertain",
+        "vote": 0.49901806319793324,
+        "coverage": 0.48,
+        "abstained": true,
+        "classificationUnchanged": true,
+        "originalTitle": "Let’s use the counts as our anchor.",
+        "currentTitle": "Choose an angle to check.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "correct",
+        "text": "A positive result is not conclusive proof of disease.",
+        "rawLabel": "certainty",
+        "label": "certainty",
+        "vote": 0.9167186456519244,
+        "coverage": 0.8571428571428571,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Leave room for uncertainty.",
+        "currentTitle": "Review what the experiment can establish.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "correct",
+        "text": "Prevalence is not irrelevant: it determines how many non-cases can become false positives.",
+        "rawLabel": "balanced",
+        "label": "balanced",
+        "vote": 0.9849016249450843,
+        "coverage": 0.5416666666666666,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "You are connecting the pieces.",
+        "currentTitle": "Review the positive group.",
+        "provisional": true,
+        "originalPraise": true,
+        "currentPraise": false
+      },
+      {
+        "group": "correct",
+        "text": "False alarms do not make every screening program useless; benefits and harms need evidence.",
+        "rawLabel": "dismissal",
+        "label": "dismissal",
+        "vote": 0.9697847021194123,
+        "coverage": 0.46153846153846156,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Errors are part of the assessment.",
+        "currentTitle": "Review benefits and harms.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "correct",
+        "text": "Nine true cases among 58.5 positives is about fifteen percent, not ninety percent.",
+        "rawLabel": "sensitivity",
+        "label": "sensitivity",
+        "vote": 0.9991577229019015,
+        "coverage": 0.5909090909090909,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Check which group you are counting.",
+        "currentTitle": "Review the two starting groups.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "correct",
+        "text": "Specificity counts negative results among people without the condition, not true cases among positives.",
+        "rawLabel": "balanced",
+        "label": "balanced",
+        "vote": 0.9998357289682823,
+        "coverage": 0.6538461538461539,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "You are connecting the pieces.",
+        "currentTitle": "Review the positive group.",
+        "provisional": true,
+        "originalPraise": true,
+        "currentPraise": false
+      },
+      {
+        "group": "correct",
+        "text": "It is wrong to say that every positive result is a guaranteed diagnosis.",
+        "rawLabel": "certainty",
+        "label": "certainty",
+        "vote": 0.8786283424496205,
+        "coverage": 0.6842105263157895,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Leave room for uncertainty.",
+        "currentTitle": "Review what the experiment can establish.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "mixed",
+        "text": "Prevalence matters, but ninety percent sensitivity still means ninety percent of positives are true.",
+        "rawLabel": "sensitivity",
+        "label": "sensitivity",
+        "vote": 0.9999999998321463,
+        "coverage": 0.76,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Check which group you are counting.",
+        "currentTitle": "Review the two starting groups.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "mixed",
+        "text": "False positives can outnumber true positives when the condition is rare, so the test is completely useless.",
+        "rawLabel": "balanced",
+        "label": "balanced",
+        "vote": 0.9999938391352348,
+        "coverage": 0.8928571428571429,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "You are connecting the pieces.",
+        "currentTitle": "Review the positive group.",
+        "provisional": true,
+        "originalPraise": true,
+        "currentPraise": false
+      },
+      {
+        "group": "mixed",
+        "text": "The result depends on the starting population, although a positive proves the disease for sure.",
+        "rawLabel": "certainty",
+        "label": "certainty",
+        "vote": 0.9930030748440959,
+        "coverage": 0.6086956521739131,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Leave room for uncertainty.",
+        "currentTitle": "Review what the experiment can establish.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "mixed",
+        "text": "False negatives can occur, but a negative result guarantees no condition.",
+        "rawLabel": "certainty",
+        "label": "certainty",
+        "vote": 0.831716242578965,
+        "coverage": 0.5263157894736842,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Leave room for uncertainty.",
+        "currentTitle": "Review what the experiment can establish.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "mixed",
+        "text": "I know sensitivity and predictive value have different denominators, yet both are always the same percentage.",
+        "rawLabel": "base_rate",
+        "label": "base_rate",
+        "vote": 0.9371322579369675,
+        "coverage": 0.46153846153846156,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Give prevalence a place in the story.",
+        "currentTitle": "Review the starting population.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "mixed",
+        "text": "We count all positive results in the denominator; in this case 9 divided by 58.5 is ninety percent.",
+        "rawLabel": "sensitivity",
+        "label": "sensitivity",
+        "vote": 0.9992353750157679,
+        "coverage": 0.5833333333333334,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Check which group you are counting.",
+        "currentTitle": "Review the two starting groups.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "ambiguous",
+        "text": "Sensitivity is ninety percent.",
+        "rawLabel": "sensitivity",
+        "label": "sensitivity",
+        "vote": 0.9999575342095176,
+        "coverage": 1,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Check which group you are counting.",
+        "currentTitle": "Review the two starting groups.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "ambiguous",
+        "text": "The test is pretty accurate.",
+        "rawLabel": "base_rate",
+        "label": "uncertain",
+        "vote": 0.5854269892047604,
+        "coverage": 0.5714285714285714,
+        "abstained": true,
+        "classificationUnchanged": true,
+        "originalTitle": "Let’s use the counts as our anchor.",
+        "currentTitle": "Choose an angle to check.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "ambiguous",
+        "text": "There are false positives.",
+        "rawLabel": "dismissal",
+        "label": "dismissal",
+        "vote": 0.8960862305265518,
+        "coverage": 1,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Errors are part of the assessment.",
+        "currentTitle": "Review benefits and harms.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "ambiguous",
+        "text": "What does prevalence mean?",
+        "rawLabel": "base_rate",
+        "label": "uncertain",
+        "vote": 0.655848744431607,
+        "coverage": 0.42857142857142855,
+        "abstained": true,
+        "classificationUnchanged": true,
+        "originalTitle": "Let’s use the counts as our anchor.",
+        "currentTitle": "Choose an angle to check.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "ambiguous",
+        "text": "My friend says a positive result proves disease. Is that really correct?",
+        "rawLabel": "certainty",
+        "label": "certainty",
+        "vote": 0.9656013686454958,
+        "coverage": 0.5789473684210527,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Leave room for uncertainty.",
+        "currentTitle": "Review what the experiment can establish.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "ambiguous",
+        "text": "I am unsure whether the denominator is cases or positives.",
+        "rawLabel": "balanced",
+        "label": "uncertain",
+        "vote": 0.48839184555279735,
+        "coverage": 0.2857142857142857,
+        "abstained": true,
+        "classificationUnchanged": true,
+        "originalTitle": "Let’s use the counts as our anchor.",
+        "currentTitle": "Choose an angle to check.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "misconception",
+        "text": "All positives are actual cases, without exception.",
+        "rawLabel": "balanced",
+        "label": "balanced",
+        "vote": 0.7640742316130136,
+        "coverage": 0.75,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "You are connecting the pieces.",
+        "currentTitle": "Review the positive group.",
+        "provisional": true,
+        "originalPraise": true,
+        "currentPraise": false
+      },
+      {
+        "group": "misconception",
+        "text": "Prevalence can be ignored for any test.",
+        "rawLabel": "balanced",
+        "label": "uncertain",
+        "vote": 0.40518696542595917,
+        "coverage": 0.4,
+        "abstained": true,
+        "classificationUnchanged": true,
+        "originalTitle": "Let’s use the counts as our anchor.",
+        "currentTitle": "Choose an angle to check.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "misconception",
+        "text": "The true-positive rate is exactly the probability that a positive is a case.",
+        "rawLabel": "sensitivity",
+        "label": "sensitivity",
+        "vote": 0.9716179316559089,
+        "coverage": 0.55,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Check which group you are counting.",
+        "currentTitle": "Review the two starting groups.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      },
+      {
+        "group": "misconception",
+        "text": "One false alarm makes every screening test pointless.",
+        "rawLabel": "dismissal",
+        "label": "dismissal",
+        "vote": 0.999891763027237,
+        "coverage": 0.6,
+        "abstained": false,
+        "classificationUnchanged": true,
+        "originalTitle": "Errors are part of the assessment.",
+        "currentTitle": "Review benefits and harms.",
+        "provisional": true,
+        "originalPraise": false,
+        "currentPraise": false
+      }
+    ]
+  },
+  "feedbackPolicy": "1.1: provisional, overridable review topics; separate factual self-checks. Model/data/holdout unchanged."
+}

@@ -16,8 +16,8 @@ Serve `dist/` with any static HTTP server: `python3 -m http.server 8000 --direct
 - Pin experiment A while varying B; compare outcomes and PPV changes in percentage points.
 - A prevalence curve using the current test, with an equivalent accessible table.
 - A conditional second-test explorer: independent identical tests, perfectly repeated results or explicit conditional rates. Assumptions are visible; a repeated result can add no information.
-- Three predict/reveal/denominator cases, first-guess summary and numeric notebook export. No coach explanation enters the export.
-- English teach-back feedback from a trained local text classifier, including influential features, coverage, label alternatives, uncalibrated votes and next-practice links.
+- Three predict/reveal/denominator cases requiring correction before progression; first numeric guesses and first/final denominator choices retained in a numeric notebook. No coach explanation enters the export.
+- Local AI topic suggestions with learner override, five factual self-checks and an explanation-revision step; inspect influential features, coverage and uncalibrated votes.
 - Conservative uncertainty handling, personal-health query guard and readable missing-model fallback.
 - Keyboard controls, labelled inputs, patterned outcomes, responsive layout, printable worksheet and validated share links containing only fictional rates.
 - Optional feature-detected WebMCP controls that operate on the same visible state.
@@ -31,17 +31,19 @@ node tests/verify.cjs
 node tests/extensions.cjs
 node tests/learning.cjs
 node tests/display.cjs
+node tests/coaching.cjs
+python3 model/audit.py
 ```
 
 The checks cover 336 base arithmetic/rounding combinations, 2,525 prevalence-curve points, 405 conditional second-test combinations, all three lesson equations, invalid inputs, immutable experiment snapshots, undefined denominators, count conservation, precise tiny-count display, text-free exports and missing-model feedback. Python/browser inference parity is checked on all 30 holdout examples. Manual browser checks covered lesson progression/restart, rate/link validation, comparison pinning, conditional presets, local feedback and a 390-pixel layout without horizontal overflow.
 
 ## AI, data and limitations
 
-A Multinomial Naive Bayes model uses learned word and adjacent-word features, additive smoothing (alpha 0.7), and five educational reasoning labels. The original synthetic dataset contains 100 English training explanations and 30 separately authored holdout examples; no patient data are used.
+A Multinomial Naive Bayes model uses learned word and adjacent-word features, additive smoothing (alpha 0.7), and five educational reasoning labels. The original synthetic dataset contains 100 English training explanations and 30 separately authored synthetic holdout examples from the same project; no patient data are used.
 
 The raw synthetic holdout result is **29/30 correct**. Uncertainty checks accept 28/30 explanations, with 27/28 correct accepted labels. One correct distinction between sensitivity and PPV is misread. See `model/evaluation.json` for complete predictions and confusion matrix. These are small synthetic development checks, not an external benchmark, clinical validation, calibrated confidence or evidence of learning or health benefit. No holdout sentences were moved into training to hide the known error.
 
-The model's votes are uncalibrated and may fail on negation, mixed reasoning, unfamiliar language or wording. The coach is a suggestion, not an assessment of competence. Its fixed responses are inspectable in `dist/coach.js`. Screening arithmetic runs separately from the model. Conditional second-test rates apply only among first-positive people; reusing unconditional rates requires the displayed independence assumption.
+The model's votes are uncalibrated and may fail on negation, mixed reasoning, unfamiliar language or wording. The classifier proposes a topic; it cannot verify an explanation. Feedback policy 1.1 makes all inferred topics provisional, permits override, and checks only a selected factual answer. A 24-case diagnostic audit found semantic failures and reduced explicit praise of flawed/mixed explanations from 2/10 to 0/10 through feedback wording; raw classifications are unchanged. This is not an accuracy or learning-benefit improvement. Its fixed responses are inspectable in `dist/coach.js`. Screening arithmetic runs separately from the model. Conditional second-test rates apply only among first-positive people; reusing unconditional rates requires the displayed independence assumption.
 
 Only squares are rounded with largest remainders, preserving 1,000 squares. Mathematical expectations and PPV use unrounded values. Display precision adapts for small nonzero counts so a defined denominator never appears as 0/0.
 
@@ -50,6 +52,8 @@ Only squares are rounded with largest remainders, preserving 1,000 squares. Math
 No analytics, external scripts/fonts, inference requests or stored learner explanations. Text and lesson guesses stay in tab memory and disappear on reload. A notebook export contains only numeric predictions, case settings and selected denominator choices. Settings links contain only three validated fictional rates. Hosting providers may keep ordinary request logs. Reference links lead to external source sites.
 
 All rates and cases are fictional. The app does not diagnose, estimate a person's risk, interpret personal results, select a real test or recommend treatment. The prototype is English only. No independent learner study, clinical validation or measured health impact has been completed.
+
+See the [full model card](docs/model-card.md), [deterministic audit](model/audit.json), [competition and product review](docs/research.md), and [entrant code walkthrough](docs/code-walkthrough.md). No exact train/holdout duplicates were found, but lexical disjointness does not make their shared synthetic authorship semantically independent.
 
 ## Research and design
 

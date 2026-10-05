@@ -1,0 +1,101 @@
+{
+  "purpose": "Author-created development stress probes, used to choose feedback changes; not a pristine holdout, independent benchmark or real learner data. Groups are author judgements, not clinical labels.",
+  "probes": [
+    {
+      "group": "correct",
+      "text": "Sensitivity measures detected cases rather than the probability of disease among positives."
+    },
+    {
+      "group": "correct",
+      "text": "Sensitivity starts with people who have the condition, whereas predictive value starts with positive results."
+    },
+    {
+      "group": "correct",
+      "text": "A positive result is not conclusive proof of disease."
+    },
+    {
+      "group": "correct",
+      "text": "Prevalence is not irrelevant: it determines how many non-cases can become false positives."
+    },
+    {
+      "group": "correct",
+      "text": "False alarms do not make every screening program useless; benefits and harms need evidence."
+    },
+    {
+      "group": "correct",
+      "text": "Nine true cases among 58.5 positives is about fifteen percent, not ninety percent."
+    },
+    {
+      "group": "correct",
+      "text": "Specificity counts negative results among people without the condition, not true cases among positives."
+    },
+    {
+      "group": "correct",
+      "text": "It is wrong to say that every positive result is a guaranteed diagnosis."
+    },
+    {
+      "group": "mixed",
+      "text": "Prevalence matters, but ninety percent sensitivity still means ninety percent of positives are true."
+    },
+    {
+      "group": "mixed",
+      "text": "False positives can outnumber true positives when the condition is rare, so the test is completely useless."
+    },
+    {
+      "group": "mixed",
+      "text": "The result depends on the starting population, although a positive proves the disease for sure."
+    },
+    {
+      "group": "mixed",
+      "text": "False negatives can occur, but a negative result guarantees no condition."
+    },
+    {
+      "group": "mixed",
+      "text": "I know sensitivity and predictive value have different denominators, yet both are always the same percentage."
+    },
+    {
+      "group": "mixed",
+      "text": "We count all positive results in the denominator; in this case 9 divided by 58.5 is ninety percent."
+    },
+    {
+      "group": "ambiguous",
+      "text": "Sensitivity is ninety percent."
+    },
+    {
+      "group": "ambiguous",
+      "text": "The test is pretty accurate."
+    },
+    {
+      "group": "ambiguous",
+      "text": "There are false positives."
+    },
+    {
+      "group": "ambiguous",
+      "text": "What does prevalence mean?"
+    },
+    {
+      "group": "ambiguous",
+      "text": "My friend says a positive result proves disease. Is that really correct?"
+    },
+    {
+      "group": "ambiguous",
+      "text": "I am unsure whether the denominator is cases or positives."
+    },
+    {
+      "group": "misconception",
+      "text": "All positives are actual cases, without exception."
+    },
+    {
+      "group": "misconception",
+      "text": "Prevalence can be ignored for any test."
+    },
+    {
+      "group": "misconception",
+      "text": "The true-positive rate is exactly the probability that a positive is a case."
+    },
+    {
+      "group": "misconception",
+      "text": "One false alarm makes every screening test pointless."
+    }
+  ]
+}

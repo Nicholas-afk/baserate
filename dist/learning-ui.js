@@ -25,7 +25,7 @@
     const prediction=get('prediction').valueAsNumber;
     try{
       const item=cases[index],result=BaseRateLearning.gradePrediction(item.id,prediction);
-      answers[index]={caseId:item.id,prediction,denominator:null};revealed=true;
+      answers[index]={caseId:item.id,prediction,denominator:null,firstDenominator:null,denominatorAttempts:0};revealed=true;
       get('prediction-error').textContent='';
       get('prediction').disabled=true;get('predict-button').disabled=true;
       get('case-reveal').hidden=false;
@@ -38,10 +38,12 @@
   });
   get('denominator-form').addEventListener('change',event=>{
     if(!revealed||denominatorDone||event.target.name!=='denominator')return;
-    denominatorDone=true;answers[index].denominator=event.target.value;
-    get('denominator-feedback').textContent=event.target.value==='positives'?'Yes. Start with everyone who tested positive, then count the true positives inside that group.':'The denominator is everyone who tested positive: true positives plus false positives. Cases alone are the denominator for sensitivity.';
-    for(const input of document.querySelectorAll('[name="denominator"]'))input.disabled=true;
-    get('practice-next').disabled=false;
+    const answer=answers[index],choice=event.target.value,result=BaseRateLearning.checkDenominator(cases[index].id,choice);
+    answer.firstDenominator??=choice;answer.denominator=choice;answer.denominatorAttempts++;
+    denominatorDone=result.correct;
+    get('denominator-feedback').textContent=result.body;
+    get('practice-next').disabled=!denominatorDone;
+    if(denominatorDone){for(const input of document.querySelectorAll('[name="denominator"]'))input.disabled=true;get('practice-next').focus({preventScroll:true});}
   });
   get('practice-next').addEventListener('click',()=>{
     if(!revealed||!denominatorDone)return;
@@ -50,13 +52,14 @@
       get('practice-case').hidden=true;get('practice-complete').hidden=false;
       get('notebook-rows').replaceChildren(...answers.map(answer=>{
         const item=cases.find(c=>c.id===answer.caseId),r=BaseRateLearning.gradePrediction(item.id,answer.prediction),tr=document.createElement('tr');
-        for(const value of [item.title,fmt(answer.prediction)+'%',fmt(r.actual)+'%',fmt(r.error)+' pp',answer.denominator==='positives'?'Positive group':'Review denominator']){const cell=document.createElement('td');cell.textContent=value;tr.append(cell);}return tr;
+        const names={cases:'Condition group',population:'Whole population',positives:'Positive group'},choices=answer.firstDenominator===answer.denominator?names[answer.denominator]:names[answer.firstDenominator]+' → '+names[answer.denominator];
+        for(const value of [item.title,fmt(answer.prediction)+'%',fmt(r.actual)+'%',fmt(r.error)+' pp',choices+' ('+answer.denominatorAttempts+' choice'+(answer.denominatorAttempts===1?'':'s')+')']){const cell=document.createElement('td');cell.textContent=value;tr.append(cell);}return tr;
       }));
       get('practice-complete').focus({preventScroll:true});
       for(const li of get('practice-steps').children){li.className='done';li.removeAttribute('aria-current');}
     }
   });
-  function restart(){index=0;answers=[];display();}
+  function restart(){index=0;answers=[];display();get('case-title').focus({preventScroll:true});}
   get('restart-practice').addEventListener('click',restart);
   get('download-notebook').addEventListener('click',()=>{
     const url=URL.createObjectURL(new Blob([JSON.stringify(BaseRateLearning.notebook(answers),null,2)],{type:'application/json'}));
