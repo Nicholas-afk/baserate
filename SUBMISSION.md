@@ -20,7 +20,7 @@ The AI coach reads an explanation locally and proposes a provisional review topi
 
 A static HTML/CSS/JavaScript app runs without dependencies, accounts or API keys. Pure arithmetic and learning modules feed separate interface controllers. A dependency-free Python trainer learns a Multinomial Naive Bayes classifier from 100 synthetic English explanations. Word and adjacent-word features distinguish contextual reasoning and four common misconception patterns.
 
-Inference stays in the browser. Coverage and vote separation can trigger uncertainty; personal-health queries are redirected away from the fictional experiment. No analytics, remote inference or stored explanations are included. Hosting providers may retain ordinary request logs.
+Inference stays in the browser. Coverage and vote separation can trigger uncertainty; personal-health queries are redirected away from the fictional experiment. The app has no analytics or remote inference calls. Explanations stay in tab memory, without persistent app storage or server transmission; exports exclude them. Loading static app/model files and demo media still contacts GitHub Pages, which may retain ordinary request logs. Connected browser assistants have separate data handling.
 
 The interface uses a restrained field-notebook style, clear hierarchy, readable labels, patterned outcomes and keyboard controls. Essential explanations stay visible; advanced assumptions and model details use progressive disclosure. The demo uses the entrant's own supplied recording and actual captured application states. It was recorded before the latest coaching and denominator-feedback refinements; the live prototype and written materials show the current version.
 

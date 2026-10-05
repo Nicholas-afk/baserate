@@ -6,7 +6,7 @@ English educational explanations of fictional screening examples. A Multinomial 
 
 The five original labels are `balanced`, `base_rate`, `sensitivity`, `certainty`, and `dismissal`. The UI maps them to a positive-group, starting-population, condition-group, uncertainty, or benefits/harms topic. Labels, votes, features and coverage remain inspectable as model diagnostics. Learners can choose another topic, answer a fixed factual question, inspect counts/reference groups, and revise their explanation. Correctness feedback applies only to the selected answer.
 
-Personal-query and unfamiliar/empty/missing-model guards remain. These are imperfect scope heuristics, not a guarantee of detecting every personal question. Missing model data still permits manual topic selection and model-independent questions. No remote inference, analytics or stored explanations are used; notebook exports omit explanations. Hosting may log ordinary requests.
+Personal-query and unfamiliar/empty/missing-model guards remain. These are imperfect scope heuristics, not a guarantee of detecting every personal question. Missing model data still permits manual topic selection and model-independent questions. The app makes no remote inference or analytics calls. Explanations are processed and retained in tab memory, without persistent app storage or server transmission; notebook exports omit them. Static app/model downloads still contact GitHub Pages, which may log requests. Optional connected browser assistants have separate data handling. See [privacy scope](privacy.md) and [architecture](architecture.md) for exact data flow and classifier equations.
 
 ## Training and original evaluation
 

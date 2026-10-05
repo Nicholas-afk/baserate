@@ -6,7 +6,19 @@ A field guide to screening uncertainty for UnivaBio 2026. Count a fictional popu
 
 ## Run locally
 
-Serve `dist/` with any static HTTP server: `python3 -m http.server 8000 --directory dist`, then open http://localhost:8000. No package installation, API key, account or remote inference is needed. The application also works from a local folder; hosting and clipboard features are best used over HTTP. Optional downloadable submission materials are included on the hosted project page.
+Clone the public repository and serve its `dist/` folder:
+
+```sh
+git clone https://github.com/Nicholas-afk/baserate.git
+cd baserate
+python3 -m http.server 8000 --directory dist
+```
+
+Open http://localhost:8000. No app package installation, API key or account is needed. Python 3 runs the server/trainer; Node.js runs the verification suites. The app itself needs only a modern JavaScript-enabled browser. Use HTTP locally or HTTPS on Pages; clipboard support depends on browser permissions and a secure context. A displayed link provides a fallback if copying fails.
+
+`main` contains the source, tests, documentation and four submission downloads in `dist/downloads/`. The existing `gh-pages` branch contains the contents of `dist/` at its root, with `.nojekyll`. GitHub Pages is configured for that branch and serves **`/baserate/`**, not the account root. All in-app assets, navigation and downloads use relative paths. To update this deployment, test `main`, update the source package/code PDF when source changes, commit the source, then copy the contents of `dist/` to the existing `gh-pages` branch and push it. Do not publish repository tooling, credentials or a raw voice recording. Confirm the Pages build and the actual served files and interactions after publishing; a successful build alone is insufficient. No bundler or environment-variable substitution is required.
+
+Read the [architecture and worked classifier explanation](docs/architecture.md), [data handling](docs/privacy.md) and [entrant walkthrough](docs/code-walkthrough.md) before presenting the project.
 
 ## Working features
 
@@ -49,11 +61,13 @@ Only squares are rounded with largest remainders, preserving 1,000 squares. Math
 
 ## Privacy
 
-No analytics, external scripts/fonts, inference requests or stored learner explanations. Text and lesson guesses stay in tab memory and disappear on reload. A notebook export contains only numeric predictions, case settings and selected denominator choices. Settings links contain only three validated fictional rates. Hosting providers may keep ordinary request logs. Reference links lead to external source sites.
+Loading the app downloads HTML, CSS, JavaScript and the trained model from GitHub Pages. The project page also requests the demo video's metadata/media. GitHub may retain ordinary request information. The application has no analytics, external scripts/fonts or remote inference calls.
+
+Coach explanations and lesson answers stay in tab memory; the app does not persist them or send them to a server. Reload resets them. An explicit notebook export saves numeric predictions, case settings and first/final denominator choices to a file; it excludes coach explanations. A copied settings link contains only three validated fictional rates. External reference links contact their destination when followed. Optional WebMCP exposes experiment controls and coach review to a connected browser assistant; that assistant has its own conversation/data handling. These claims describe the app, not every browser extension or hosting provider. See the [full privacy scope](docs/privacy.md).
 
 All rates and cases are fictional. The app does not diagnose, estimate a person's risk, interpret personal results, select a real test or recommend treatment. The prototype is English only. No independent learner study, clinical validation or measured health impact has been completed.
 
-See the [full model card](docs/model-card.md), [deterministic audit](model/audit.json), [competition and product review](docs/research.md), and [entrant code walkthrough](docs/code-walkthrough.md). No exact train/holdout duplicates were found, but lexical disjointness does not make their shared synthetic authorship semantically independent.
+See the [full model card](docs/model-card.md), [deterministic audit](model/audit.json), [competition and product review](docs/research.md), and [entrant code walkthrough](docs/code-walkthrough.md). No exact train/holdout duplicates were found, but lexical disjointness does not make their shared synthetic authorship semantically independent. Publication and responsive browser checks are development QA, not a physical-device, screen-reader or learner study. The 84-second recorded demo predates the latest coaching refinements; the live app and source describe the current release.
 
 ## Research and design
 
@@ -73,4 +87,4 @@ Next steps: independently collected learner explanations, health-educator review
 
 ## License
 
-MIT for original application source and synthetic dataset. Linked research retains its own rights. The entrant-provided narration is used for this competition demo; the source license does not grant rights to impersonate the entrant or reuse their voice.
+MIT for original application source, documentation and synthetic dataset. Linked research retains its own rights. The entrant-provided narration is used for this competition demo; the source license does not grant rights to impersonate the entrant or reuse their voice. See [attribution and media scope](docs/attribution.md).
