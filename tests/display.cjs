@@ -1,0 +1,18 @@
+const assert=require('node:assert/strict');
+const science=require('../dist/science.js');
+const coach=require('../dist/coach.js');
+const result=science.sequential({prevalence:.1,sensitivity:1,specificity:100},1,0);
+assert.equal(result.ppv,100);
+assert.equal(science.formatNumber(result.tp),'0.0001');
+assert.equal(science.formatNumber(result.positive),'0.0001');
+assert.equal(science.formatNumber(result.first.tp),'0.01');
+assert.equal(science.formatNumber(49.5),'49.5');
+assert.equal(science.formatNumber(940.5),'940.5');
+assert.equal(science.formatNumber(0),'0');
+for(const value of [.00000000001,.0001,.001,.01,.1,-.0001])assert.notEqual(Number(science.formatNumber(value).replace(/,/g,'')),0);
+const unavailable=coach.classify('False positives can outnumber true positives.',null);
+assert.equal(unavailable.label,'unavailable');
+assert.match(coach.feedback(unavailable,result.first).body,/model.*unavailable/i);
+assert.match(coach.feedback(unavailable,result.first).counts,/0\.01 true positives/);
+assert.match(coach.feedback(unavailable,result).counts,/0\.0001 true positives/);
+console.log(JSON.stringify({result:'PASS',checks:['nonzero count precision','defined repeat denominator','very small display values','missing model message']}));

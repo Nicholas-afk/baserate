@@ -1,0 +1,260 @@
+{
+  "metrics": {
+    "evaluatedCount": 30,
+    "correctCount": 29,
+    "rawAccuracy": 0.9666666666666667,
+    "acceptedCount": 28,
+    "acceptedCorrect": 27,
+    "coverage": 0.9333333333333333,
+    "confusionMatrix": {
+      "balanced": {
+        "balanced": 5,
+        "certainty": 0,
+        "sensitivity": 1,
+        "base_rate": 0,
+        "dismissal": 0
+      },
+      "certainty": {
+        "balanced": 0,
+        "certainty": 6,
+        "sensitivity": 0,
+        "base_rate": 0,
+        "dismissal": 0
+      },
+      "sensitivity": {
+        "balanced": 0,
+        "certainty": 0,
+        "sensitivity": 6,
+        "base_rate": 0,
+        "dismissal": 0
+      },
+      "base_rate": {
+        "balanced": 0,
+        "certainty": 0,
+        "sensitivity": 0,
+        "base_rate": 6,
+        "dismissal": 0
+      },
+      "dismissal": {
+        "balanced": 0,
+        "certainty": 0,
+        "sensitivity": 0,
+        "base_rate": 0,
+        "dismissal": 6
+      }
+    },
+    "limits": "Small, author-created English holdout. Training and holdout share a fictional task; no external, multilingual, clinical, or educational-outcome validation."
+  },
+  "predictions": [
+    {
+      "text": "Positive results can include people without the condition, so I compare true positives with all positives.",
+      "actual": "balanced",
+      "predicted": "balanced",
+      "vote": 0.9999,
+      "abstained": false
+    },
+    {
+      "text": "If a condition is rare, the large healthy group can create lots of false positives.",
+      "actual": "balanced",
+      "predicted": "balanced",
+      "vote": 0.9628,
+      "abstained": false
+    },
+    {
+      "text": "A positive screening result is not a diagnosis because the test sometimes flags non cases.",
+      "actual": "balanced",
+      "predicted": "balanced",
+      "vote": 0.9848,
+      "abstained": false
+    },
+    {
+      "text": "A negative result is not certain because false negatives can occur.",
+      "actual": "balanced",
+      "predicted": "balanced",
+      "vote": 0.9855,
+      "abstained": false
+    },
+    {
+      "text": "How common the condition is affects the proportion of real cases among positive results.",
+      "actual": "balanced",
+      "predicted": "balanced",
+      "vote": 0.955,
+      "abstained": false
+    },
+    {
+      "text": "Sensitivity measures detected cases rather than the probability of disease among positives.",
+      "actual": "balanced",
+      "predicted": "sensitivity",
+      "vote": 0.9808,
+      "abstained": false
+    },
+    {
+      "text": "If someone screens positive they must have the condition for sure.",
+      "actual": "certainty",
+      "predicted": "certainty",
+      "vote": 0.9712,
+      "abstained": false
+    },
+    {
+      "text": "A negative result is an absolute guarantee of no disease.",
+      "actual": "certainty",
+      "predicted": "certainty",
+      "vote": 0.9967,
+      "abstained": false
+    },
+    {
+      "text": "The screen confirms the disease with complete certainty.",
+      "actual": "certainty",
+      "predicted": "certainty",
+      "vote": 0.8101,
+      "abstained": false
+    },
+    {
+      "text": "Positive means definitely ill and negative means definitely well.",
+      "actual": "certainty",
+      "predicted": "certainty",
+      "vote": 0.9847,
+      "abstained": false
+    },
+    {
+      "text": "Every positive result is conclusive proof of disease.",
+      "actual": "certainty",
+      "predicted": "certainty",
+      "vote": 0.996,
+      "abstained": false
+    },
+    {
+      "text": "It is impossible for somebody with a negative screen to be ill.",
+      "actual": "certainty",
+      "predicted": "certainty",
+      "vote": 0.9991,
+      "abstained": false
+    },
+    {
+      "text": "The test detects ninety percent of cases, therefore ninety percent of positive people are sick.",
+      "actual": "sensitivity",
+      "predicted": "sensitivity",
+      "vote": 1.0,
+      "abstained": false
+    },
+    {
+      "text": "I think sensitivity is the chance a positive test is a real case.",
+      "actual": "sensitivity",
+      "predicted": "sensitivity",
+      "vote": 0.9525,
+      "abstained": false
+    },
+    {
+      "text": "The ninety percent sensitivity is also the positive predictive value.",
+      "actual": "sensitivity",
+      "predicted": "sensitivity",
+      "vote": 1.0,
+      "abstained": false
+    },
+    {
+      "text": "Specificity is how likely somebody is to have the condition given a positive.",
+      "actual": "sensitivity",
+      "predicted": "sensitivity",
+      "vote": 0.6772,
+      "abstained": false
+    },
+    {
+      "text": "Sensitivity means the proportion with disease in the positive group.",
+      "actual": "sensitivity",
+      "predicted": "sensitivity",
+      "vote": 0.9981,
+      "abstained": false
+    },
+    {
+      "text": "Ninety percent case detection tells us nine out of ten positives have disease.",
+      "actual": "sensitivity",
+      "predicted": "sensitivity",
+      "vote": 1.0,
+      "abstained": false
+    },
+    {
+      "text": "The disease frequency is irrelevant to interpreting a positive test.",
+      "actual": "base_rate",
+      "predicted": "base_rate",
+      "vote": 0.5632,
+      "abstained": true
+    },
+    {
+      "text": "I can leave prevalence out because sensitivity and specificity are enough.",
+      "actual": "base_rate",
+      "predicted": "base_rate",
+      "vote": 0.6504,
+      "abstained": false
+    },
+    {
+      "text": "It makes no difference if the disease is uncommon or widespread.",
+      "actual": "base_rate",
+      "predicted": "base_rate",
+      "vote": 0.869,
+      "abstained": false
+    },
+    {
+      "text": "The same test means the same probability in any group.",
+      "actual": "base_rate",
+      "predicted": "base_rate",
+      "vote": 0.9962,
+      "abstained": false
+    },
+    {
+      "text": "The base rate does not affect the fraction of true positives.",
+      "actual": "base_rate",
+      "predicted": "base_rate",
+      "vote": 0.9767,
+      "abstained": false
+    },
+    {
+      "text": "There is no reason to consider how common the condition is.",
+      "actual": "base_rate",
+      "predicted": "base_rate",
+      "vote": 0.6138,
+      "abstained": true
+    },
+    {
+      "text": "Because false positives occur, screening should never be used at all.",
+      "actual": "dismissal",
+      "predicted": "dismissal",
+      "vote": 1.0,
+      "abstained": false
+    },
+    {
+      "text": "A screening test that misses a case is entirely worthless.",
+      "actual": "dismissal",
+      "predicted": "dismissal",
+      "vote": 0.9985,
+      "abstained": false
+    },
+    {
+      "text": "False alarms mean the test has zero value.",
+      "actual": "dismissal",
+      "predicted": "dismissal",
+      "vote": 0.9997,
+      "abstained": false
+    },
+    {
+      "text": "An imperfect test is always a waste of effort.",
+      "actual": "dismissal",
+      "predicted": "dismissal",
+      "vote": 0.9993,
+      "abstained": false
+    },
+    {
+      "text": "Any false result proves screening is pointless.",
+      "actual": "dismissal",
+      "predicted": "dismissal",
+      "vote": 0.9869,
+      "abstained": false
+    },
+    {
+      "text": "If tests are not perfect there cannot be any screening benefit.",
+      "actual": "dismissal",
+      "predicted": "dismissal",
+      "vote": 0.991,
+      "abstained": false
+    }
+  ]
+}
