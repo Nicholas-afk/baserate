@@ -15,7 +15,7 @@
     return {actual:counts.ppv,error,close:error<=2,counts};
   }
   function notebook(answers){
-    return {version:2,purpose:'Fictional screening practice; not a validated learning assessment',storage:'This export was created on request. The app stores no learner data.',attempts:answers.map(answer=>{
+    return {version:2,purpose:'Fictional screening practice; not a validated learning assessment',storage:'This export was created on request. The app retains answers in tab memory, with no persistent app storage; this downloaded file persists independently.',attempts:answers.map(answer=>{
       const item=cases.find(c=>c.id===answer.caseId),result=gradePrediction(answer.caseId,answer.prediction);
       const valid=value=>['positives','cases','population'].includes(value),denominator=valid(answer.denominator)?answer.denominator:null;
       return {caseId:item.id,settings:{...item.settings},prediction:answer.prediction,actual:result.actual,absoluteErrorPercentagePoints:result.error,denominator,firstDenominator:valid(answer.firstDenominator)?answer.firstDenominator:denominator,denominatorAttempts:Number.isSafeInteger(answer.denominatorAttempts)&&answer.denominatorAttempts>=0?answer.denominatorAttempts:denominator?1:0};
