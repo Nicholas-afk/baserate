@@ -18,6 +18,8 @@ Open http://localhost:8000. No app package installation, API key or account is n
 
 `main` contains the source, tests, documentation and four submission downloads in `dist/downloads/`. The existing `gh-pages` branch contains the contents of `dist/` at its root, with `.nojekyll`. GitHub Pages is configured for that branch and serves **`/baserate/`**, not the account root. All in-app assets, navigation and downloads use relative paths. To update this deployment, test `main`, update the source package/code PDF when source changes, commit the source, then copy the contents of `dist/` to the existing `gh-pages` branch and push it. Do not publish repository tooling, credentials or a raw voice recording. Confirm the Pages build and the actual served files and interactions after publishing; a successful build alone is insufficient. No bundler or environment-variable substitution is required.
 
+The runnable source ZIP excludes the four submission downloads to avoid recursively packaging itself. Serve its `dist/` folder to use the app; obtain the demo and PDFs from the public materials page. The main repository includes those downloads. Raw narration and private video authoring files are excluded.
+
 Read the [architecture and worked classifier explanation](docs/architecture.md), [data handling](docs/privacy.md) and [entrant walkthrough](docs/code-walkthrough.md) before presenting the project.
 
 ## Working features
@@ -67,7 +69,7 @@ Coach explanations and lesson answers stay in tab memory; the app does not persi
 
 All rates and cases are fictional. The app does not diagnose, estimate a person's risk, interpret personal results, select a real test or recommend treatment. The prototype is English only. No independent learner study, clinical validation or measured health impact has been completed.
 
-See the [full model card](docs/model-card.md), [deterministic audit](model/audit.json), [competition and product review](docs/research.md), and [entrant code walkthrough](docs/code-walkthrough.md). No exact train/holdout duplicates were found, but lexical disjointness does not make their shared synthetic authorship semantically independent. Publication and responsive browser checks are development QA, not a physical-device, screen-reader or learner study. The 84-second recorded demo predates the latest coaching refinements; the live app and source describe the current release.
+See the [full model card](docs/model-card.md), [deterministic audit](model/audit.json), [competition and product review](docs/research.md), and [entrant code walkthrough](docs/code-walkthrough.md). No exact train/holdout duplicates were found, but lexical disjointness does not make their shared synthetic authorship semantically independent. Publication and responsive browser checks are development QA, not a physical-device, screen-reader or learner study. The refreshed 112-second demo shows the final release. Its staged inputs are demonstration data, not a learner study; see [demo methods and claim qualifications](docs/demo.md).
 
 ## Research and design
 
@@ -81,7 +83,7 @@ Natural frequencies and explicit reference groups informed the grid/tree and den
 
 ## Authorship and next validation
 
-Code, synthetic data, educational copy, interface and submission materials were created with extensive AI assistance at the entrant's direction. The demo uses the entrant's supplied recording over captured states of the actual app, followed by a visual feature tour. No medical expertise, personal biography, clinical research or learner-testing results are claimed. The entrant must understand the implementation and be ready to explain it to judges.
+Code, synthetic data, educational copy, interface and submission materials were created with extensive AI assistance at the entrant's direction. The demo uses the entrant's unchanged supplied recording over edited screen-state captures of the actual final app, followed by a silent, annotated walkthrough of prediction, correction, export, comparison and repeat-test assumptions. It is not a continuous screen recording. No medical expertise, personal biography, clinical research or learner-testing results are claimed. The entrant must understand the implementation and be ready to explain it to judges.
 
 Next steps: independently collected learner explanations, health-educator review, evaluated multilingual support, accessibility testing with users and a properly designed comprehension study. These are proposed work, not completed outcomes.
 

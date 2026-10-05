@@ -52,3 +52,8 @@ The guided lesson now explains the actual ratio implied by each wrong denominato
 Automated tests cover all five topic questions, correct/wrong answers, unknown choices, invalid rates, no-condition and perfect-specificity edges, case feedback and text-free exports. Actual browser checks assess rendering and interaction. AI-assisted code review and synthetic critiques are development QA. No real learner study, educator review, clinical validation, multilingual evaluation or assistive-technology user study has occurred.
 
 Future claims should use independently collected explanations, adjudicated ambiguous/mixed cases, untouched evaluation sets, calibrated abstention analysis and transfer/delayed learning measures. The current prototype is intentionally limited to fictional educational use.
+
+
+## Demo interpretation
+
+The refreshed demo shows feedback policy 1.1 and the unchanged 1.0.0 classifier. The narrated 29/30 result is a raw same-project synthetic holdout result; it does not include abstention or establish independent generalization. Accepted-label results are 27 correct of 28 accepted. Selected factual answers are checked separately from inferred topics. See [the demo claim qualifications](demo.md).
