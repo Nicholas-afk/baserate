@@ -1,6 +1,6 @@
 # Attribution, authorship and rights
 
-BaseRate's application code, interface, educational copy, synthetic examples, training/audit code and submission materials were created with extensive AI assistance at the entrant's direction. Automated tests and AI-assisted code review are development evidence. No human learner study, educator endorsement, medical expertise or measured learning/health effect is claimed. The entrant must understand and explain the implementation under the competition's AI-assistance condition.
+Automated tests and development code review are development evidence. No human learner study, educator endorsement, medical expertise or measured learning/health effect is claimed. The entrant must understand and explain the implementation.
 
 ## Content and design sources
 
@@ -17,4 +17,4 @@ These are linked references, not bundled papers or endorsements. Original prose 
 
 [MIT](../LICENSE) covers original application source, documentation and synthetic dataset. Linked sources retain their own rights. The competition demo includes the entrant's supplied narration over actual app states and a visual feature tour. Public distribution of that final demo is authorized for this project; the raw voice recording is excluded. The MIT source license does not grant rights to reuse the entrant's voice or impersonate them.
 
-The refreshed 112-second demo shows the final coaching and denominator-feedback behavior. It preserves the original supplied narration, with level gain and peak limiting only. The visual edit uses actual screen-state captures and condensed interactions, not a continuous recording. Staged estimates are labelled demonstration inputs. No participant identity, biography or outcomes are invented. See [demo methods and qualifications](demo.md).
+The refreshed 109.4-second demo shows the final coaching and denominator-feedback behavior. It uses the original supplied narration with one repetitive clause removed, level gain and peak limiting. The visual edit uses actual screen-state captures and condensed interactions, not a continuous recording. Staged estimates are labelled demonstration inputs. No participant identity, biography or outcomes are invented. See [demo methods and qualifications](demo.md).

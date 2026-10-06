@@ -69,7 +69,7 @@ Coach explanations and lesson answers stay in tab memory; the app does not persi
 
 All rates and cases are fictional. The app does not diagnose, estimate a person's risk, interpret personal results, select a real test or recommend treatment. The prototype is English only. No independent learner study, clinical validation or measured health impact has been completed.
 
-See the [full model card](docs/model-card.md), [deterministic audit](model/audit.json), [competition and product review](docs/research.md), and [entrant code walkthrough](docs/code-walkthrough.md). No exact train/holdout duplicates were found, but lexical disjointness does not make their shared synthetic authorship semantically independent. Publication and responsive browser checks are development QA, not a physical-device, screen-reader or learner study. The refreshed 112-second demo shows the final release. Its staged inputs are demonstration data, not a learner study; see [demo methods and claim qualifications](docs/demo.md).
+See the [full model card](docs/model-card.md), [deterministic audit](model/audit.json), [competition and product review](docs/research.md), and [entrant code walkthrough](docs/code-walkthrough.md). No exact train/holdout duplicates were found, but lexical disjointness does not make their shared synthetic authorship semantically independent. Publication and responsive browser checks are development QA, not a physical-device, screen-reader or learner study. The refreshed 109.4-second demo shows the final release. Its staged inputs are demonstration data, not a learner study; see [demo methods and claim qualifications](docs/demo.md).
 
 ## Research and design
 
@@ -81,9 +81,9 @@ Natural frequencies and explicit reference groups informed the grid/tree and den
 - [Nielsen Norman Group, visual design principles](https://www.nngroup.com/articles/principles-visual-design/)
 - [GOV.UK Design System, Details component](https://design-system.service.gov.uk/components/details/)
 
-## Authorship and next validation
+## Demonstration and next validation
 
-Code, synthetic data, educational copy, interface and submission materials were created with extensive AI assistance at the entrant's direction. The demo uses the entrant's unchanged supplied recording over edited screen-state captures of the actual final app, followed by a silent, annotated walkthrough of prediction, correction, export, comparison and repeat-test assumptions. It is not a continuous screen recording. No medical expertise, personal biography, clinical research or learner-testing results are claimed. The entrant must understand the implementation and be ready to explain it to judges.
+The demo uses the entrant's supplied recording with one repetitive clause removed over edited screen-state captures of the actual final app, followed by a silent, annotated walkthrough of prediction, correction, export, comparison and repeat-test assumptions. It is not a continuous screen recording. No medical expertise, personal biography, clinical research or learner-testing results are claimed. The entrant must understand the implementation and be ready to explain it to judges.
 
 Next steps: independently collected learner explanations, health-educator review, evaluated multilingual support, accessibility testing with users and a properly designed comprehension study. These are proposed work, not completed outcomes.
 

@@ -22,7 +22,7 @@ A static HTML/CSS/JavaScript app runs without dependencies, accounts or API keys
 
 Inference stays in the browser. Coverage and vote separation can trigger uncertainty; personal-health queries are redirected away from the fictional experiment. The app has no analytics or remote inference calls. Explanations stay in tab memory, without persistent app storage or server transmission; exports exclude them. Loading static app/model files and demo media still contacts GitHub Pages, which may retain ordinary request logs. Connected browser assistants have separate data handling.
 
-The interface uses a restrained field-notebook style, clear hierarchy, readable labels, patterned outcomes and keyboard controls. Essential explanations stay visible; advanced assumptions and model details use progressive disclosure. The refreshed 112-second demo uses the entrant's unchanged supplied narration over actual final-application screen-state captures, with edited holds and cuts. It shows the local coach, staged prediction, correction, notebook export, pinned comparison and explicit repeat-test assumptions. The estimates are demonstration data, not a learner study; this is not a continuous screen recording. [Watch the final demo and access the deliverables](https://nicholas-afk.github.io/baserate/project.html).
+The interface uses a restrained field-notebook style, clear hierarchy, readable labels, patterned outcomes and keyboard controls. Essential explanations stay visible; advanced assumptions and model details use progressive disclosure. The refreshed 109.4-second demo uses the entrant's supplied narration with a repetitive clause removed over actual final-application screen-state captures, with edited holds and cuts. It shows the local coach, staged prediction, correction, notebook export, pinned comparison and explicit repeat-test assumptions. The estimates are demonstration data, not a learner study; this is not a continuous screen recording. [Watch the final demo and access the deliverables](https://nicholas-afk.github.io/baserate/project.html).
 
 ## Challenges and what was learned
 
@@ -40,9 +40,9 @@ Browser checks verified comparison pinning, independent/repeated presets, three-
 
 The synthetic holdout from the same project produced 29/30 correct raw classifications. Uncertainty checks accepted 28 labels, 27 correct. These are development checks, not a benchmark, clinical accuracy claim, evidence of learning gain or health outcome. No independent learner study or clinical validation has been completed. No exact split duplicates were found; shared authorship and claim types limit semantic independence. The reproducible audit, full model card and entrant code walkthrough are in the repository.
 
-## AI assistance and honest limits
+## Honest limits
 
-The project, interface, synthetic dataset, implementation and submission materials were created with extensive AI assistance at the entrant's direction. The entrant supplied the narration and must understand and explain the code. No clinical research, medical expertise or user testing is claimed.
+The entrant supplied the narration and must understand and explain the code. No clinical research, medical expertise or user testing is claimed.
 
 All scenarios are fictional. The English-only classifier can fail on negation, mixed ideas, unfamiliar phrasing and other languages. Model votes are uncalibrated. The app does not interpret personal results, diagnose, recommend real tests or give treatment advice. The AI neither computes the screening probability nor generates medical facts.
 

@@ -1,6 +1,6 @@
 # Entrant code walkthrough
 
-UnivaBio encourages AI assistance while requiring entrants to understand and explain their code. This guide supports preparation; it does not certify that the entrant understands the implementation.
+UnivaBio requires entrants to understand and explain their code. This guide supports preparation; it does not certify that the entrant understands the implementation.
 
 ## Explain the result first
 

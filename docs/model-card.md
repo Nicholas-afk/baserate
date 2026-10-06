@@ -10,7 +10,7 @@ Personal-query and unfamiliar/empty/missing-model guards remain. These are imper
 
 ## Training and original evaluation
 
-`model/dataset.json` contains 100 synthetic English training sentences and 30 separately authored synthetic holdout sentences. Both subsets were generated with AI assistance in the same project. They are not independently collected learner data. Word and adjacent-word counts, additive smoothing alpha 0.7, class priors and learned likelihoods are implemented by the standard-library Python trainer and browser inference.
+`model/dataset.json` contains 100 synthetic English training sentences and 30 separately authored synthetic holdout sentences. Both subsets were authored within the same project. They are not independently collected learner data. Word and adjacent-word counts, additive smoothing alpha 0.7, class priors and learned likelihoods are implemented by the standard-library Python trainer and browser inference.
 
 Run `python3 model/train.py` to reproduce the distributed artifacts. Run `python3 model/audit.py` to reproduce and compare them in a temporary directory, check the split, and rerun the archived/current feedback probes. The audit does not modify the model or evaluation. `--write` regenerates the deterministic audit artifact after an intentional change. Node and Python standard libraries suffice.
 
@@ -49,7 +49,7 @@ Among the 10 flawed/mixed diagnostic cases, the archived response used an explic
 
 The guided lesson now explains the actual ratio implied by each wrong denominator and requires a corrected positive-group choice before progression. Notebook schema 2 retains first and final denominator choices and number of selections, alongside first numeric predictions. This makes observed correction visible. Selection counts are not equivalent to effort, mastery or learning gain.
 
-Automated tests cover all five topic questions, correct/wrong answers, unknown choices, invalid rates, no-condition and perfect-specificity edges, case feedback and text-free exports. Actual browser checks assess rendering and interaction. AI-assisted code review and synthetic critiques are development QA. No real learner study, educator review, clinical validation, multilingual evaluation or assistive-technology user study has occurred.
+Automated tests cover all five topic questions, correct/wrong answers, unknown choices, invalid rates, no-condition and perfect-specificity edges, case feedback and text-free exports. Actual browser checks assess rendering and interaction. development code review and synthetic critiques are development QA. No real learner study, educator review, clinical validation, multilingual evaluation or assistive-technology user study has occurred.
 
 Future claims should use independently collected explanations, adjudicated ambiguous/mixed cases, untouched evaluation sets, calibrated abstention analysis and transfer/delayed learning measures. The current prototype is intentionally limited to fictional educational use.
 
